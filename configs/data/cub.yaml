@@ -1,0 +1,26 @@
+defaults:
+  - path_configs
+
+name: cub
+
+data_root: ${data.cub_root}
+batch_size: 16
+scale_size: 448
+crop_size: 384
+momentum: 0.001
+
+object:
+  trainval:
+    _target_: calibrate.data.cub.get_train_val_loader
+    data_root: ${data.data_root}
+    batch_size: ${data.batch_size}
+    scale_size: ${data.scale_size}
+    crop_size: ${data.crop_size}
+    num_workers: 16
+  test:
+    _target_: calibrate.data.cub.get_test_loader
+    data_root: ${data.data_root}
+    batch_size: ${data.batch_size}
+    scale_size: ${data.scale_size}
+    crop_size: ${data.crop_size}
+    num_workers: 8

@@ -1,0 +1,23 @@
+defaults:
+  - path_configs
+
+name: tiny_imagenet
+data_root: ${data.tiny_imagenet_root}
+batch_size: 64
+momentum: 0.5
+object:
+  trainval:
+    _target_: calibrate.data.tiny_imagenet.get_train_val_loader
+    root: ${data.data_root}
+    batch_size: ${data.batch_size}
+    val_samples_per_class: 50
+    random_seed: ${seed}
+    shuffle: true
+    num_workers: 16
+    pin_memory: true
+  test:
+    _target_: calibrate.data.tiny_imagenet.get_test_loader
+    root: ${data.data_root}
+    batch_size: ${data.batch_size}
+    num_workers: 4
+    pin_memory: true

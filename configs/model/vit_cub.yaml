@@ -1,0 +1,5 @@
+name: vit_cub
+num_classes: 200
+object:
+  _target_: calibrate.net.vit.vit_base_patch16
+  num_classes: ${model.num_classes}

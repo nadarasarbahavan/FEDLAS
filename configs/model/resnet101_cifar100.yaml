@@ -1,0 +1,6 @@
+name: resnet101_cifar100
+num_classes: 100
+
+object:
+  _target_: calibrate.net.resnet_cifar10.resnet101
+  num_classes: ${model.num_classes}

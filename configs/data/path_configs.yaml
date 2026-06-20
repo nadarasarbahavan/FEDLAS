@@ -1,0 +1,6 @@
+# Dataset root paths — update these to match your local setup. See README.md for download and directory instructions.
+cifar_root: 
+tiny_imagenet_root: 
+cub_root:
+air_root: 
+svhn_root: 

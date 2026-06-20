@@ -1,0 +1,34 @@
+hydra:
+  run:
+    dir: outputs/${data.name}/${model.name}-${loss.name}-${optim.name}/${now:%Y%m%d-%H:%M:%S-%f}
+
+defaults:
+  - data: cub
+  - model: vit_cub
+  - loss: fedlasplus_tiny
+  - optim: adamw
+  - scheduler: multi_step_vit
+  - override hydra/job_logging: custom
+  - _self_
+
+
+device: cuda:0
+task: cv
+seed: 1
+noise_rate : 0
+log_period: 10
+train:
+  clip_grad_norm: true
+  max_epoch: 200
+  resume: false
+  keep_checkpoint_num: 1
+  keep_checkpoint_interval: 0
+calibrate:
+  num_bins: 15
+  visualize: false
+test:
+  checkpoint: ''
+  save_logits: false
+  post_temperature: false
+
+

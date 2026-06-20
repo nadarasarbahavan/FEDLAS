@@ -1,0 +1,16 @@
+name: fedlas_cif10
+alpha: 0.05
+beta : 4
+reduction : "mean"
+logit_size : ${model.num_classes} 
+requires_features: true
+ignore_index: -100
+
+object:
+  _target_: calibrate.losses.FEDLAS
+  alpha: ${loss.alpha}
+  beta: ${loss.beta}
+  ignore_index: ${loss.ignore_index}
+  reduction: ${loss.reduction}
+  logit_size: ${loss.logit_size}
+  momentum: ${data.momentum}

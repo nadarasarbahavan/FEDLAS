@@ -1,0 +1,34 @@
+defaults:
+  - path_configs
+
+name: cifar10
+
+data_root: ${data.cifar_root}
+batch_size: 128
+momentum: 0.95
+
+
+object:
+  trainval:
+    _target_: calibrate.data.cifar10.get_train_valid_loader
+    batch_size: ${data.batch_size}
+    augment: true
+    random_seed: ${seed}
+    shuffle: true
+    num_workers: 16
+    pin_memory: true
+    data_dir: ${data.data_root}
+    return_index: False
+  test:
+    _target_: calibrate.data.cifar10.get_test_loader
+    batch_size: ${data.batch_size}
+    shuffle: false
+    num_workers: 4
+    pin_memory: true
+    data_dir: ${data.data_root}
+  in_dist:
+    _target_: calibrate.data.cifar10.get_test_loader
+    data_dir: ${data.cifar_root}
+    batch_size: ${data.batch_size}
+    num_workers: 4
+    pin_memory: true
