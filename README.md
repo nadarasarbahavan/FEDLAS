@@ -116,11 +116,11 @@ python tools/test.py task=ood data=cifar100 data/ood=cifar10 model=resnet50_cifa
 ## Citation
 If you find our work and this repository useful. Please consider giving a star :star: and citation.
 ```bibtex
-@inproceedings{[CITATION KEY],
-  title={[PAPER FULL TITLE]},
-  author={[AUTHORS]},
-  booktitle={[VENUE]},
-  year={[YEAR]}
+@inproceedings{
+  title={FedLAS: Feature-Modulated Bidirectional Label Smoothing for Neural Network Calibration},
+  author={Thiru Thillai Nadarasar Bahavan, Sachith Seneviratne, Saman Halgamuge},
+  booktitle={19th European Conference on Computer Vision},
+  year={2026}
 }
 ```
 
